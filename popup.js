@@ -1,4 +1,4 @@
-
+﻿
  
  
  
@@ -87,36 +87,43 @@
 	   //打开一个新的tab 
 	   document.getElementById('newTabBt').addEventListener('click',function (e){
 		   
+		   var  testUrl = chrome.extension.getURL('test.html');
+		   //'./test.html'
 		   chrome.tabs.create({
 			   
-			   url:'./test.html'
+			   url: testUrl
 		   });
 	   });
 	   
 	   //打开官网链接 
 	   document.getElementById('oepnUrlBt').addEventListener('click',function (e){
 		   
-		 // openBaidu();
-		 //clickOpenUrls();
-		 createTabs(array);
+		  
 		 
+		 
+		 chrome.tabs.create({
+			   
+			   url:'https://github.com/beyondbycyx/chrome-plugin-check/blob/master/rquestjs.html'
+		   });
 	   });
+	   
+	   //打开一个通知
+	   document.getElementById('notify').addEventListener('click',function(e){
+		   
+		    chrome.notifications.create('001',{
+				
+				type:chrome.notifications.TemplateType.BASIC,
+				
+				title:'通知一',
+				iconUrl: './images/icon38.png',
+				message:'内容....'
+			});
+
+	   });
+	   
 	   
 	});
 	
-	function createTabs(array){
-		
-		
-	  for(var index in array){
-		  
-		   chrome.tabs.create({
-		   
-		   url:array[index]
-	      });
-		  
-	  }
-	  
-	    
-	}
+	 
 	
  
